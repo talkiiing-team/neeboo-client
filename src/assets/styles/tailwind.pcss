@@ -6,7 +6,48 @@
   .disabled {
     @apply opacity-50 pointer-events-none;
   }
+
+  /* Typography combinations */
+  .m4 {
+    @apply font-montserrat font-bold text-4;
+  }
+  .m3 {
+    @apply font-montserrat font-semibold text-3;
+  }
+  .m2 {
+    @apply font-montserrat font-normal text-2;
+  }
+  .m1 {
+    @apply font-montserrat font-normal text-1;
+  }
+  .r4 {
+    @apply font-roboto font-bold text-4;
+  }
+  .r3 {
+    @apply font-roboto font-semibold text-3;
+  }
+  .r2 {
+    @apply font-roboto font-normal text-2;
+  }
+  .r1 {
+    @apply font-roboto font-normal text-1;
+  }
 }
 
 @layer base {
+  html, body {
+    @apply font-roboto;
+  }
+  #app {
+    @apply min-h-full;
+  }
+  img {
+    @apply drag-none select-none;
+  }
+}
+
+@layer utilities {
+  .drag-none {
+    -webkit-user-drag: none;
+  }
 }
