@@ -13,7 +13,9 @@
         'rotate-180': toggled,
       }"/>
     </div>
-    <div v-if="toggled">
+    <div v-if="toggled" :class="{
+      'shadow-md': toggled,
+    }">
       <div v-for="option in options" :key="option">
         <div @click="select(option)" class="r2">{{ option.display }}</div>
       </div>
