@@ -9,34 +9,34 @@
 
   /* Typography combinations */
   .m4 {
-    @apply font-montserrat font-bold text-4;
+    @apply font-montserrat font-bold text-4 leading-4;
   }
   .m3 {
-    @apply font-montserrat font-semibold text-3;
+    @apply font-montserrat font-semibold text-3 leading-3;
   }
   .m2 {
-    @apply font-montserrat font-normal text-2;
+    @apply font-montserrat font-normal text-2 leading-2;
   }
   .m1 {
-    @apply font-montserrat font-normal text-1;
+    @apply font-montserrat font-normal text-1 leading-1;
   }
   .r4 {
-    @apply font-roboto font-bold text-4;
+    @apply font-roboto font-bold text-4 leading-4;
   }
   .r3 {
-    @apply font-roboto font-semibold text-3;
+    @apply font-roboto font-medium text-3 leading-3;
   }
   .r2 {
-    @apply font-roboto font-normal text-2;
+    @apply font-roboto font-light text-2 leading-2;
   }
   .r1 {
-    @apply font-roboto font-normal text-1;
+    @apply font-roboto font-light text-1 leading-1;
   }
 }
 
 @layer base {
   html, body {
-    @apply font-roboto;
+    @apply font-roboto tracking-default;
   }
   #app {
     @apply min-h-full;
