@@ -1,16 +1,10 @@
 <template>
-  <div>
-    <router-link to="/">Home</router-link>
-  </div>
-  <div class="container px-6">
+  <div class="container px-4 pt-10">
     <router-view />
   </div>
-  <NavBar />
 </template>
 <script>
-import NavBar from '@/components/NavBar.vue';
-
 export default {
-  components: { NavBar },
+  name: 'App',
 };
 </script>
