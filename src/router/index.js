@@ -5,6 +5,8 @@ import Profile from '@/views/Profile.vue';
 import SignUp from '@/views/SignUp.vue';
 import store, { actionsMap } from '@/store';
 import { computed } from 'vue';
+import Wallet from '@/views/Wallet.vue';
+import Requests from '@/views/Requests.vue';
 
 export const types = {
   requiresAuth: 0,
@@ -37,6 +39,22 @@ const routes = [
     path: '/profile',
     name: 'Profile',
     component: Profile,
+    meta: {
+      auth: types.requiresAuth,
+    },
+  },
+  {
+    path: '/wallet',
+    name: 'Wallet',
+    component: Wallet,
+    meta: {
+      auth: types.requiresAuth,
+    },
+  },
+  {
+    path: '/requests',
+    name: 'Requests',
+    component: Requests,
     meta: {
       auth: types.requiresAuth,
     },
