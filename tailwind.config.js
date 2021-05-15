@@ -10,6 +10,7 @@ module.exports = {
       roboto: 'Roboto, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
     },
     fontSize: {
+      5: '1.875rem',
       4: '1.3125rem',
       3: '1.125rem',
       2: '1rem',
@@ -38,6 +39,7 @@ module.exports = {
     boxShadow: {
       inner: 'inset 0px 4px 4px rgba(0, 0, 0, 0.25)',
       outer: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+      'outer-xl': '0px 4px 11px rgba(0, 0, 0, 0.25)',
     },
     extend: {
       borderWidth: {
