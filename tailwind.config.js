@@ -18,9 +18,12 @@ module.exports = {
     colors: {
       red: '#BD2D2F',
       white: '#FFF',
+      black: '#000',
       gray: {
         light: '#EEE',
         darker: '#C9C9C9',
+        dark: '#8E8E93',
+        darkest: '#444',
       },
     },
     letterSpacing: {
@@ -34,6 +37,7 @@ module.exports = {
     },
     boxShadow: {
       inner: 'inset 0px 4px 4px rgba(0, 0, 0, 0.25)',
+      outer: '0px 4px 4px rgba(0, 0, 0, 0.25)',
     },
     extend: {
       borderWidth: {

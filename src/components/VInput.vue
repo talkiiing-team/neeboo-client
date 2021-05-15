@@ -5,7 +5,8 @@
     @input="handleInput"
     class="
       rounded-full border-box px-5 py-2.5 border-gray-light border-1 outline-none r2 text-black
-      placeholder:text-gray-light hover:border-gray-darker transition-colors duration-200
+      placeholder:text-gray-light hover:border-gray-darker focus:border-gray-darker
+      transition-colors duration-200
     "
   />
 </template>
