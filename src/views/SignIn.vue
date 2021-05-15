@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col justify-between items-center">
+  <div class="flex flex-col justify-start items-center">
     <img class="mb-28" src="@/assets/images/nsd.svg"/>
     <div class="flex flex-col items-start w-full mb-20">
       <VInput class="w-full mb-4" placeholder="Логин"></VInput>
