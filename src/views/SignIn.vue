@@ -1,13 +1,13 @@
 <template>
   <div class="flex flex-col justify-between items-center">
-    <img class="mb-28" alt="NSD logotype" src="@/assets/images/nsd.svg"/>
+    <img class="mb-28 h-16" alt="NSD logotype" src="@/assets/images/nsd.svg"/>
     <div class="flex flex-col items-start w-full mb-20">
       <VInput class="w-full mb-4" placeholder="Логин"></VInput>
       <VInput class="w-full mb-2.5" placeholder="Пароль" type="password"></VInput>
       <a class="r1 ml-4 text-red">Забыли пароль?</a>
     </div>
     <VButton class="mb-7">Вход</VButton>
-    <a class="r1 text-red">Создать аккаунт</a>
+    <router-link to="/signup" class="r1 text-red">Создать аккаунт</router-link>
   </div>
 </template>
 

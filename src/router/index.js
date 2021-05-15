@@ -9,7 +9,7 @@ import SignUp from '@/views/SignUp.vue';
 import Wallet from '@/views/Wallet.vue';
 import Requests from '@/views/Requests.vue';
 import Tokens from '@/views/Tokens.vue';
-import Token from '../views/Token.vue';
+import Token from '@/views/Token.vue';
 
 export const types = {
   requiresAuth: 0,
@@ -102,7 +102,7 @@ router.beforeEach(async (to, from, next) => {
   if (to.meta.auth === types.requiresNotAuth) {
     await attemptToAuthorize();
     if (user.value) {
-      return next('/profile');
+      return next('/wallet');
     }
     return next();
   }

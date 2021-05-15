@@ -69,11 +69,31 @@ const store = createStore({
       });
     },
 
-    async [actionsMap.register](_, user) {
+    async [actionsMap.register](_, {
+      fullName,
+      registrationDate,
+      mainRegisterNumber,
+      registrationCompany,
+      regpaperNumb,
+      email,
+      password,
+      type,
+    }) {
       const {
         data,
         status,
-      } = await axios.post('/users', user);
+      } = await axios.post('/users', {
+        fullName,
+        personalData: {
+          regpaperNumb,
+          registrationCompany,
+          mainRegisterNumber,
+          registrationDate,
+        },
+        email,
+        password,
+        type,
+      });
       if (status !== 201) {
         throw new Error('Error during registration');
       }
