@@ -1,5 +1,5 @@
 <template>
-  <div class="container px-4 pt-10">
+  <div class="container px-4 pt-10 h-full">
     <router-view />
   </div>
   <NavBar v-if="showNavbar" />
