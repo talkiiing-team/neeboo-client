@@ -1,32 +1,72 @@
 import { createStore } from 'vuex';
+import axios from './axios';
 
 export const stateMap = {
-  counter: 'counter',
+  user: 'user',
 };
 
 export const gettersMap = {};
 
 export const mutationsMap = {
-  setCounter: 'setCounter',
+  setUser: 'setUser',
 };
 
 export const actionsMap = {
-  increment: 'increment',
-  decrement: 'decrement',
+  authenticate: 'authenticate',
+  logout: 'logout',
+  attemptToAuthenticate: 'attemptToAuthenticate',
 };
 
 const store = createStore({
   state: () => ({
-    [stateMap.counter]: 0,
+    [stateMap.user]: null,
   }),
+
   mutations: {
-    [mutationsMap.setCounter]: (state, payload) => { state.counter = payload; },
+    [mutationsMap.setUser](state, payload) {
+      state.user = payload;
+    },
   },
+
   actions: {
-    [actionsMap.increment]:
-      ({ commit, state }) => commit(mutationsMap.setCounter, state.counter + 1),
-    [actionsMap.decrement]:
-      ({ commit, state }) => commit(mutationsMap.setCounter, state.counter - 1),
+    async [actionsMap.authenticate]({ commit }, authData) {
+      try {
+        const {
+          data,
+          status,
+        } = await axios.post('/authentication', {
+          strategy: 'local',
+          ...authData,
+        });
+        if (status === 201) {
+          const {
+            user,
+            accessToken,
+          } = data;
+          commit(mutationsMap.setUser, user);
+          localStorage.setItem('token', accessToken);
+          axios.defaults.headers.authorization = `Bearer ${accessToken}`;
+        }
+      } catch (e) {
+        throw new Error('Authentication failed');
+      }
+    },
+
+    [actionsMap.logout]({ commit }) {
+      commit(mutationsMap.setUser, null);
+      axios.defaults.headers.authorization = undefined;
+    },
+
+    async [actionsMap.attemptToAuthenticate]({ dispatch }) {
+      const accessToken = localStorage.getItem('token');
+      if (!accessToken) {
+        return;
+      }
+      await dispatch(actionsMap.authenticate, {
+        strategy: 'jwt',
+        accessToken,
+      });
+    },
   },
 });
 
