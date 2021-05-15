@@ -19,7 +19,7 @@
           -mx-6 grid grid-flow-row absolute top-0 left-0 pt-10 bg-white shadow-outer
         "
         :style="{
-          width: 'calc(100% + 3rem)',
+          width: 'calc(100% + 2.5rem)',
         }"
       >
         <div

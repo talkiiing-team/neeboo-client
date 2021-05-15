@@ -15,6 +15,7 @@ export const actionsMap = {
   authenticate: 'authenticate',
   logout: 'logout',
   attemptToAuthenticate: 'attemptToAuthenticate',
+  register: 'register',
 };
 
 const store = createStore({
@@ -48,7 +49,7 @@ const store = createStore({
           axios.defaults.headers.authorization = `Bearer ${accessToken}`;
         }
       } catch (e) {
-        throw new Error('Authentication failed');
+        console.log('Unauthenticated');
       }
     },
 
@@ -66,6 +67,17 @@ const store = createStore({
         strategy: 'jwt',
         accessToken,
       });
+    },
+
+    async [actionsMap.register](_, user) {
+      const {
+        data,
+        status,
+      } = await axios.post('/users', user);
+      if (status !== 201) {
+        throw new Error('Error during registration');
+      }
+      return data;
     },
   },
 });
