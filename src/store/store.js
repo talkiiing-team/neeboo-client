@@ -20,7 +20,7 @@ export const actionsMap = {
 
 const store = createStore({
   state: () => ({
-    [stateMap.user]: null,
+    [stateMap.user]: {},
   }),
 
   mutations: {

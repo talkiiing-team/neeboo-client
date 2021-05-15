@@ -1,12 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import store, { actionsMap } from '@/store';
+import { computed } from 'vue';
+
 import Home from '@/views/Home.vue';
 import SignIn from '@/views/SignIn.vue';
 import Profile from '@/views/Profile.vue';
 import SignUp from '@/views/SignUp.vue';
-import store, { actionsMap } from '@/store';
-import { computed } from 'vue';
 import Wallet from '@/views/Wallet.vue';
 import Requests from '@/views/Requests.vue';
+import Asset from '@/views/Asset.vue';
+import Token from '../views/Token.vue';
 
 export const types = {
   requiresAuth: 0,
@@ -55,6 +58,22 @@ const routes = [
     path: '/requests',
     name: 'Requests',
     component: Requests,
+    meta: {
+      auth: types.requiresAuth,
+    },
+  },
+  {
+    path: '/wallet/asset/:id',
+    name: 'Asset',
+    component: Asset,
+    meta: {
+      auth: types.requiresAuth,
+    },
+  },
+  {
+    path: '/wallet/token/:id',
+    name: 'Token',
+    component: Token,
     meta: {
       auth: types.requiresAuth,
     },
