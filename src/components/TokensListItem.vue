@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import { useRouter } from 'vue-router';
+
 export default {
   name: 'TokensListItem',
   props: {
@@ -19,8 +21,11 @@ export default {
     },
   },
   setup(props) {
+    const router = useRouter();
+
     const openToken = () => {
       console.log(`openToken ${props.token.name}`);
+      router.push(`/wallet/token/${props.token.id}`);
     };
 
     return {

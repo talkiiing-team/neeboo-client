@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { useRouter } from 'vue-router';
+
 export default {
   name: 'WalletsListItem',
   props: {
@@ -20,8 +22,11 @@ export default {
     },
   },
   setup(props) {
+    const router = useRouter();
+
     const openWallet = () => {
       console.log(`openWallet ${props.wallet.name}`);
+      router.push(`/wallet/${props.wallet.id}`);
     };
 
     return {

@@ -12,7 +12,7 @@ import TokensList from '@/components/TokensList.vue';
 import { ref } from 'vue';
 
 export default {
-  name: 'Asset',
+  name: 'Tokens',
   components: {
     TokensList,
   },
@@ -23,18 +23,22 @@ export default {
       {
         name: 'Покемоны',
         networth: '141600',
+        id: 1,
       },
       {
         name: 'Шлёпа',
         networth: '990000',
+        id: 2,
       },
       {
         name: 'Шлёпа',
         networth: '990000',
+        id: 3,
       },
       {
         name: 'Шлёпа',
         networth: '990000',
+        id: 4,
       },
     ]);
 

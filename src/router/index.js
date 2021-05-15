@@ -8,7 +8,7 @@ import Profile from '@/views/Profile.vue';
 import SignUp from '@/views/SignUp.vue';
 import Wallet from '@/views/Wallet.vue';
 import Requests from '@/views/Requests.vue';
-import Asset from '@/views/Asset.vue';
+import Tokens from '@/views/Tokens.vue';
 import Token from '../views/Token.vue';
 
 export const types = {
@@ -63,9 +63,9 @@ const routes = [
     },
   },
   {
-    path: '/wallet/asset/:id',
-    name: 'Asset',
-    component: Asset,
+    path: '/wallet/:id',
+    name: 'Tokens',
+    component: Tokens,
     meta: {
       auth: types.requiresAuth,
     },
