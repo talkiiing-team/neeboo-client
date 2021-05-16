@@ -10,6 +10,8 @@ import Wallet from '@/views/Wallet.vue';
 import Requests from '@/views/Requests.vue';
 import Tokens from '@/views/Tokens.vue';
 import Token from '@/views/Token.vue';
+import SellingToken from '@/views/SellingToken.vue';
+import Account from '@/views/Account.vue';
 
 export const types = {
   requiresAuth: 0,
@@ -74,6 +76,22 @@ const routes = [
     path: '/wallet/token/:id',
     name: 'Token',
     component: Token,
+    meta: {
+      auth: types.requiresAuth,
+    },
+  },
+  {
+    path: '/wallet/sellToken/:id',
+    name: 'SellingToken',
+    component: SellingToken,
+    meta: {
+      auth: types.requiresAuth,
+    },
+  },
+  {
+    path: '/account',
+    name: 'Account',
+    component: Account,
     meta: {
       auth: types.requiresAuth,
     },
