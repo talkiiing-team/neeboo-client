@@ -23,7 +23,7 @@
       </template>
       <template v-slot:label>Заявки</template>
     </NavBarItem>
-    <NavBarItem link-to="/profile">
+    <NavBarItem link-to="/account">
       <template v-slot:icon>
         <UserIcon />
       </template>
