@@ -3,12 +3,14 @@ import axios from './axios';
 
 export const stateMap = {
   user: 'user',
+  wallets: 'wallets',
 };
 
 export const gettersMap = {};
 
 export const mutationsMap = {
   setUser: 'setUser',
+  setWallets: 'setWallets',
 };
 
 export const actionsMap = {
@@ -16,16 +18,23 @@ export const actionsMap = {
   logout: 'logout',
   attemptToAuthenticate: 'attemptToAuthenticate',
   register: 'register',
+  createWallet: 'createWallet',
+  fetchWallets: 'fetchWallets',
+  createToken: 'createToken',
 };
 
 const store = createStore({
   state: () => ({
-    [stateMap.user]: {},
+    [stateMap.user]: null,
+    [stateMap.wallets]: [],
   }),
 
   mutations: {
     [mutationsMap.setUser](state, payload) {
       state.user = payload;
+    },
+    [mutationsMap.setWallets](state, payload) {
+      state.wallets = payload;
     },
   },
 
@@ -77,7 +86,7 @@ const store = createStore({
       regpaperNumb,
       email,
       password,
-      type,
+      form,
     }) {
       const {
         data,
@@ -92,12 +101,41 @@ const store = createStore({
         },
         email,
         password,
-        type,
+        form,
       });
       if (status !== 201) {
         throw new Error('Error during registration');
       }
       return data;
+    },
+
+    async [actionsMap.createWallet](_, walletData) {
+      const {
+        data,
+        status,
+      } = await axios.post('/wallet', walletData);
+      if (status !== 201) {
+        throw new Error('Error during creating wallet');
+      }
+      return data;
+    },
+
+    async [actionsMap.fetchWallets]({ state, commit }) {
+      const {
+        data,
+        status,
+        // eslint-disable-next-line no-underscore-dangle
+      } = await axios.get(`/wallet?ownerId=${state.user._id}`);
+      console.log(data);
+      if (status !== 200) {
+        throw new Error('Error during fetching wallets');
+      }
+      commit(mutationsMap.setWallets, data.data);
+      return data.data;
+    },
+
+    async [actionsMap.createToken](_, data) {
+      await axios.post('/asset-request', data);
     },
   },
 });

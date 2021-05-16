@@ -12,6 +12,7 @@ import Tokens from '@/views/Tokens.vue';
 import Token from '@/views/Token.vue';
 import SellingToken from '@/views/SellingToken.vue';
 import Account from '@/views/Account.vue';
+import CreateToken from '@/views/CreateToken.vue';
 
 export const types = {
   requiresAuth: 0,
@@ -92,6 +93,14 @@ const routes = [
     path: '/account',
     name: 'Account',
     component: Account,
+    meta: {
+      auth: types.requiresAuth,
+    },
+  },
+  {
+    path: '/create',
+    name: 'Create Token',
+    component: CreateToken,
     meta: {
       auth: types.requiresAuth,
     },

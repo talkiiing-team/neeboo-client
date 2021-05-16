@@ -10,6 +10,9 @@
 import { ref } from 'vue';
 
 import WalletsList from '@/components/WalletsList.vue';
+import {
+  useState, stateMap, useActions, actionsMap,
+} from '@/store';
 
 export default {
   name: 'Wallet',
@@ -19,20 +22,24 @@ export default {
   setup() {
     const networth = ref(1951850);
 
-    const wallets = ref([
-      {
-        name: 'Покемоны',
-        networth: '141600',
-        count: 40,
-        id: 1,
-      },
-      {
-        name: 'Шлёпа',
-        networth: '990000',
-        count: 40,
-        id: 2,
-      },
-    ]);
+    // const wallets = ref([
+    //   {
+    //     name: 'Покемоны',
+    //     networth: '141600',
+    //     count: 40,
+    //     id: 1,
+    //   },
+    //   {
+    //     name: 'Шлёпа',
+    //     networth: '990000',
+    //     count: 40,
+    //     id: 2,
+    //   },
+    // ]);
+
+    const { wallets } = useState([stateMap.wallets]);
+    const { fetchWallets } = useActions([actionsMap.fetchWallets]);
+    fetchWallets();
 
     return {
       networth,

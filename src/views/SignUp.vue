@@ -4,7 +4,7 @@
     <div class="flex flex-col justify-start items-start w-full">
       <p class="m4 mb-4">Создание аккаунта</p>
       <template v-if="!phase">
-        <VSelect class="mb-8" :options="options" v-model="type"></VSelect>
+        <VSelect class="mb-8" :options="options" v-model="form"></VSelect>
         <VInput class="w-full mb-6"
           placeholder="Наименование" v-model="fullName"></VInput>
         <VInput class="w-full mb-4" type="date"
@@ -72,7 +72,7 @@ export default {
       regpaperNumb: '',
       email: '',
       password: '',
-      type: options[0].value,
+      form: options[0].value,
     });
 
     const secondPassword = ref('');
