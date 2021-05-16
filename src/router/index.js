@@ -10,6 +10,7 @@ import Wallet from '@/views/Wallet.vue';
 import Requests from '@/views/Requests.vue';
 import Tokens from '@/views/Tokens.vue';
 import Token from '@/views/Token.vue';
+import CreateToken from '@/views/CreateToken.vue';
 
 export const types = {
   requiresAuth: 0,
@@ -74,6 +75,14 @@ const routes = [
     path: '/wallet/token/:id',
     name: 'Token',
     component: Token,
+    meta: {
+      auth: types.requiresAuth,
+    },
+  },
+  {
+    path: '/create',
+    name: 'Create Token',
+    component: CreateToken,
     meta: {
       auth: types.requiresAuth,
     },
